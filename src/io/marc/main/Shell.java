@@ -18,6 +18,9 @@ import io.marc.lib.Fab;
 public class Shell {
 
     public static void main(String[] args) {
+
+        String fabVersion = "1.0";
+        String commandVersion = "fab --version";
         
         while (true) {
             try {
@@ -29,6 +32,11 @@ public class Shell {
                 }
 
                 String inputString = console.readLine("$fab>>> ");
+
+                if (inputString.equals(commandVersion)) {
+                    System.out.println("Fab current version: " + fabVersion);
+                    continue;
+                }
 
                 System.out.println(inputString);
 
