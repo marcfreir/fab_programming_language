@@ -2,7 +2,7 @@ package io.marc.main;
 
 import java.io.Console;
 
-import io.marc.assets.Fab;
+import io.marc.lib.Fab;
 
 /**
  * Shell
