@@ -5,6 +5,14 @@ import java.io.Console;
 import io.marc.lib.Fab;
 
 /**
+ *   ###       #       #     #     #
+ *  #     #### #####    #     #     #
+ * ####  #   # #    #    #     #     #
+ *  #    #   # #    #   #     #     #
+ *  #     #### #####   #     #     #
+ */
+
+/**
  * Shell
  */
 public class Shell {
