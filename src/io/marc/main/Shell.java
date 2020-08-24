@@ -1,6 +1,7 @@
 package io.marc.main;
 
-import java.util.Scanner;
+import java.io.Console;
+
 import io.marc.assets.Fab;
 
 /**
@@ -10,31 +11,23 @@ public class Shell {
 
     public static void main(String[] args) {
         
-        int x = 4;
-        while (x > 0) {
-        /**while (true) {*/
+        while (true) {
             try {
-                Scanner inputScanner = new Scanner(System.in);
-                System.out.print("$fab>>> ");
-                String inputString = inputScanner.nextLine();
-                //something
-    
-                System.out.println(inputString);
-    
-                /** Using "while" the scanner should not close */
-                /**inputScanner.close();*/
-                x--;
-                if(x < 0) {
-                    inputScanner.close();
-                    break;
+                Console console = System.console();
+
+                if (console == null) {
+                    System.out.println("Nothing to show!");
+                    return;
                 }
 
-                //inputScanner.close();
-                
+                String inputString = console.readLine("$fab>>> ");
+
+                System.out.println(inputString);
+
+
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
-        /**}*/
         }
     }
 }
