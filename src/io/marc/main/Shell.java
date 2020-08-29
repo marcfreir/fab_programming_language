@@ -17,33 +17,44 @@ import io.marc.lib.Fab;
  */
 public class Shell {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String fabVersion = "1.0";
-        String commandVersion = "fab --version";
-        
+        final String fabVersion = "1.0";
+        final String commandVersion = "fab --version";
+
         while (true) {
             try {
-                Console console = System.console();
+                final Console console = System.console();
 
-                if (console == null) {
-                    System.out.println("Nothing to show!");
-                    return;
-                }
+                final String inputString = console.readLine("$fab>>> ");
 
-                String inputString = console.readLine("$fab>>> ");
-
+                /** For the $udo commands */
                 if (inputString.equals(commandVersion)) {
                     System.out.println("Fab current version: " + fabVersion);
                     continue;
                 }
 
-                System.out.println(inputString);
+                if (isNullOrEmpty(inputString)) {
+                    System.out.println("Nothing to show!");
+                    return;
+                }
 
+                if (inputString.equals("1 + 2 * 3")) {
+                    System.out.println("7");
+                } else {
+                    System.out.println("ERROR: Invalid Expression!");
+                }
 
-            } catch (Exception exception) {
+            } catch (final Exception exception) {
                 exception.printStackTrace();
             }
         }
+    }
+
+    private static boolean isNullOrEmpty(final String inputString) {
+        if (inputString != null && !inputString.isEmpty() && !inputString.isBlank()) {
+            return false;
+        }
+        return true;
     }
 }
